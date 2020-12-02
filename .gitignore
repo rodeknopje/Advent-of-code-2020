@@ -1,0 +1,7 @@
+.idea
+obj
+bin
+global.json
+*csproj
+.sln
+*.sln
