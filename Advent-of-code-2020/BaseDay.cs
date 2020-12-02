@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace AdventOfCode_2020
+namespace Advent_of_code_2020
 {
     public abstract class BaseDay
     {

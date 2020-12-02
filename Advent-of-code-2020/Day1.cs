@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace AdventOfCode_2020
+namespace Advent_of_code_2020
 {
     public class Day1 : BaseDay
     {
@@ -18,21 +18,25 @@ namespace AdventOfCode_2020
 
         public override void Solution1()
         {
-            Console.WriteLine((
-                from a in Numbers 
-                from b in Numbers 
-                where a + b == 2020 
-                select a * b).FirstOrDefault());
+            var answer = (
+                from a in Numbers
+                from b in Numbers
+                where a + b == 2020
+                select a * b).FirstOrDefault();
+
+            Console.WriteLine(answer);
         }
 
         public override void Solution2()
         {
-            Console.WriteLine((
+            var answer = (
                 from a in Numbers
                 from b in Numbers
                 from c in Numbers
                 where a + b + c == 2020
-                select a * b * c).FirstOrDefault());
+                select a * b * c).FirstOrDefault();
+
+            Console.WriteLine(answer);
         }
     }
 }
