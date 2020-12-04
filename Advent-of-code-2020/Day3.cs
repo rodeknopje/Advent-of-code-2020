@@ -15,29 +15,26 @@ namespace Advent_of_code_2020
             var sizeY = lines.Count;
             var sizeX = lines[0].Length;
 
-            var planeX = 0;
             var answer = 0;
-            
+
             for (var y = 0; y < sizeY; y++)
             {
-                answer += lines[y][planeX] == '#' ? 1 : 0;
-                
-                planeX = (planeX + 3) % sizeX;
+                answer += lines[y][y * 3 % sizeX] == '#' ? 1 : 0;
             }
-
+            
             Console.WriteLine(answer);
         }
 
         public override void Solution2()
         {
             Console.WriteLine(
-                GetTreeCount(1,1) *
-                GetTreeCount(3,1) * 
-                GetTreeCount(5,1) * 
-                GetTreeCount(7,1) * 
-                GetTreeCount(1,2) 
+                GetTreeCount(1, 1) *
+                GetTreeCount(3, 1) *
+                GetTreeCount(5, 1) *
+                GetTreeCount(7, 1) *
+                GetTreeCount(1, 2)
             );
-            
+
             long GetTreeCount(int right, int down)
             {
                 var lines = File.ReadAllLines(FilePath).ToList();
@@ -47,11 +44,11 @@ namespace Advent_of_code_2020
 
                 var planeX = 0;
                 var answer = 0;
-            
-                for (var y = 0; y < sizeY; y+=down)
+
+                for (var y = 0; y < sizeY; y += down)
                 {
                     answer += lines[y][planeX] == '#' ? 1 : 0;
-                
+
                     planeX = (planeX + right) % sizeX;
                 }
 

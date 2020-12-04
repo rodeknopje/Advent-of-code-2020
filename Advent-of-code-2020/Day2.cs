@@ -55,6 +55,7 @@ namespace Advent_of_code_2020
 
                     return match1 ^ match2;
                 });
+            
             Console.WriteLine(count);
         }
     }
