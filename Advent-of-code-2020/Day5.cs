@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Advent_of_code_2020.Input
+namespace Advent_of_code_2020
 {
     public class Day5 : BaseDay
     {
