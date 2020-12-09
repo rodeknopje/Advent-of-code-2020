@@ -1,5 +1,4 @@
-﻿using Advent_of_code_2020.Input;
-
+﻿
 namespace Advent_of_code_2020
 {
     static class Program

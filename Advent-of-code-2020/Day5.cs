@@ -29,9 +29,10 @@ namespace Advent_of_code_2020
                 col.max -= letter == 'L' ? halfRange : 0;
                 col.min += letter == 'R' ? halfRange : 0;
             }
+
             return row.min * 8 + col.min;
         }
-        
+
         public override void Solution1()
         {
             Console.WriteLine(File.ReadAllLines(FilePath).Select(GetSeatId).OrderByDescending(x => x).First());
@@ -40,16 +41,13 @@ namespace Advent_of_code_2020
         public override void Solution2()
         {
             var seatsOnPlane = File.ReadAllLines(FilePath).Select(GetSeatId).ToList();
-            
-            seatsOnPlane.ForEach(id =>
-            {
-                if (seatsOnPlane.Contains(id + 1) == false && seatsOnPlane.Contains(id + 2))
-                {
-                    Console.WriteLine(id + 1);
-                    
-                    return;
-                }
-            });
+
+            Console.WriteLine(
+                seatsOnPlane.FirstOrDefault(id =>
+                    seatsOnPlane.Contains(id + 1) == false &&
+                    seatsOnPlane.Contains(id + 2) == true
+                ) + 1
+            );
         }
     }
 }
