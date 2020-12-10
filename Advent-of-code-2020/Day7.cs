@@ -67,6 +67,61 @@ namespace Advent_of_code_2020
 
         public override void Solution2()
         {
+            var bags = new Dictionary<string, Dictionary<string,int>>();
+            
+            var lines = File.ReadAllLines(FilePath);
+
+            foreach (var line in lines)
+            {
+                var matches = new Regex("(?:^(.+?)\\sbags|(\\d)\\s(.+?)\\sbag)").Matches(line).ToList();
+                
+                var fistBag = matches.First().Groups[1].ToString();
+                
+                bags.Add(fistBag,new Dictionary<string, int>());
+                
+                foreach (var match in matches.Skip(1))
+                {
+                    bags[fistBag].Add(
+                        match.Groups[3].ToString(),
+                        Convert.ToInt32(match.Groups[2].ToString()));
+                }
+            }
+
+            var answer = 0;
+            
+            var currentBags = new List<string>();
+
+            foreach (var bag in bags["shiny gold"])
+            {
+                for (var i = 0; i < bag.Value; i++)
+                {
+                    currentBags.Add(bag.Key);
+                }
+            }
+
+            while (currentBags.Any())
+            {
+                answer += currentBags.Count;
+
+                var newBags = new List<string>();
+
+                foreach (var bag in currentBags)
+                {
+                    var bagsContent = bags[bag];
+
+                    foreach (var content in bagsContent)
+                    {
+                        for (var i = 0; i < content.Value; i++)
+                        {
+                            newBags.Add(content.Key);
+                        }
+                    }
+                }
+
+                currentBags = newBags;
+            }
+
+            Console.WriteLine(answer);
         }
     }
 }
