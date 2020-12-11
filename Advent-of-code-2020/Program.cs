@@ -15,8 +15,8 @@ namespace Advent_of_code_2020
             // new Day5().Solution2();            
             // new Day6().Solution1();
             // new Day6().Solution2();           
-            new Day8().Solution1();
-            new Day8().Solution2();
+            new Day9().Solution1();
+            new Day9().Solution2();
         }
     }
 }
