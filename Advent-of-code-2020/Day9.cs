@@ -47,9 +47,11 @@ namespace Advent_of_code_2020
 
         public override void Solution2()
         {
-            var invalidNumber = 257342611;
+            const long invalidNumber = 257342611;
 
             var numbers = File.ReadAllLines(FilePath).Select(line => Convert.ToInt64(line)).ToList();
+
+            
 
             for (var i = 0; i < numbers.Count; i++)
             {
